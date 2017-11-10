@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Math Submission form</title>
+  </head>
+  <body>
+    <form action="/math" method="get">
+      <select>
+        <option value="Add">Add</option>
+        <option value="Subtract">Subtract</option>
+        <option value="Multiply">Multiply</option>
+        <option value="Divide">Divide</option>
+      </select><br/><br/>
+      <input type="text" name="num1">
+      <input type="text" name="num2">
+      <br/><br/>
+      <input type="submit" value="submit">
+    </form>
+  </body>
+</html>
