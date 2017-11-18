@@ -1,10 +1,11 @@
 //localhost:5000/getPerson?id=1
+//https://stormy-garden-79016.herokuapp.com/getPerson?id=3
 
 var express = require('express');
 var app = express();
 
-var pg = require("pg"); //postgres://postgres:aurelius6908@127.0.0.1:5432/familyhistory.//127.0.0.1
-const connectionString = process.env.postgresql-deep-67364;//postgresql-deep-67364
+var pg = require("pg"); //'postgres://postgres:aurelius6908@127.0.0.1:5432/fav'
+const connectionString = 'postgres://postgres:aurelius6908@127.0.0.1:5432/fav';//process.env.DATABASE_UR
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -14,19 +15,17 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/getPerson', function(request, response) {
-    getPerson(request, response);
+app.get('/getFav', function(request, response) {
+    getFav(request, response);
 });
 
 app.listen(app.get('port'), function() {
     console.log('Node app is running on port', app.get('port'));
 });
 
-function getPerson(request, response) {
+function getFav(request, response) {
     // First get the person's id
     var id = request.query.id;
-
-   // TODO: It would be nice to check here for a valid id before continuing on...
 
    // use a helper function to query the DB, and provide a callback for when it's done
     getPersonFromDb(id, function(error, result) {
@@ -55,7 +54,7 @@ function getPersonFromDb(id, callback) {
             callback(err, null);
         }
 
-       var sql = "SELECT id, first, last, birthdate FROM person WHERE id = $1::int";
+       var sql = "SELECT * FROM fav WHERE id = $1::int";
         var params = [id];
 
        var query = client.query(sql, params, function(err, result) {
