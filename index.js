@@ -3,8 +3,8 @@
 var express = require('express');
 var app = express();
 
-var pg = require("pg"); // This is the postgres database connection module.
-const connectionString = 'postgres://postgres:aurelius6908@127.0.0.1:5432/familyhistory';//testUser, testPass
+var pg = require("pg"); // This is the postgres database connection module.//127.0.0.1
+const connectionString = 'postgres://postgres:aurelius6908@postgresql-deep-67364:5432/familyhistory';//postgresql-deep-67364
 
 app.set('port', (process.env.PORT || 5000));
 
