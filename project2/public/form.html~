@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Postage Calculation Form</title>
+	<style>
+		body {
+			background-color: whitesmoke;
+		}
+	</style>
+</head>
+<body>
+<%- include('partials/navbar') %>
+<center>
+	<h1>Postage Calculation Form</h1>
+	<form action="/mail" method="get">
+		<p>Please enter the weight in ounces: </p>
+		<input type="text" name="weight">
+		<br>
+		<p>Please select the type of mail: </p>
+		<select name="operation">
+			<option value='Stamped'>Letters (Stamped)</option>
+			<option value='Metered'>Letters (Metered)</option>
+			<option value='Flats'>Large Envelopes (Flats)</option>
+			<option value='Parcel'>Parcels</option>
+			<option value='Snail'>Snail Mail</option>
+		</select>
+		<br><br>
+		<input type="submit" value="Get Result">
+
+	</form>
+</center>
+</body>
+</html>
