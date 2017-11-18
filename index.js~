@@ -1,5 +1,5 @@
 //cd /home/marcus/node-js-getting-started
-//
+//heroku local
 var cool = require('cool-ascii-faces');
 var express = require('express');
 var app = express();
@@ -14,7 +14,27 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
-  response.render('pages/index')
+  //response.render('pages/index')
+const { Pool, Client } = require('pg')
+
+// pools will use environment variables
+// for connection information
+const pool = new Pool()
+
+pool.query('SELECT NOW()', (err, res) => {
+  console.log(err, res)
+  pool.end()
+})
+
+
+// clients will also use environment variables
+// for connection information
+const client = new Client()
+client.connect()
+
+const res = client.query('SELECT NOW()')
+client.end()  
+  
 });
 
 app.get('/cool', function(request, response) {

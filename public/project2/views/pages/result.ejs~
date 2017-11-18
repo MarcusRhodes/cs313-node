@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Postage Result</title>
+	<style>
+		body {
+			background-color: whitesmoke;
+		}
+	</style>	
+</head>
+<body>
+<center>
+	<h1>So here is your postage...</h1>
+	<p>You have mail!</p>
+	<p>So <%= mailType %> mail with a weight of <%= weight %> ounces is: $<%= result %></p>
+	<p>Better pay up!</p>
+</center>
+</body>
+</html>

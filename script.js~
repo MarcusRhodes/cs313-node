@@ -1,0 +1,21 @@
+//To run, in the terminal:
+//PGHOST='localhost' \
+//PGUSER=process.env.USER \
+//PGDATABASE=process.env.USER	\
+//PGPASSWORD=null \
+//PGPORT=5432 \
+
+///*
+const { Client } = require('pg')
+
+// pools will use environment variables
+// for connection information
+
+// clients will also use environment variables
+// for connection information
+const client = new Client()
+await client.connect()
+
+const res = await client.query('SELECT NOW()')
+await client.end()
+//*/
