@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Teach 11</title>
+<meta charset="utf-8" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+	function findMovie() {
+		var input = $("#movie").val();
+		window.alert(input);
+		$.getJSON('http://www.omdbapi.com/?i=tt3896198&apikey=15623f33', function(data){
+			alert(data);
+   		console.log("Works");
+		});
+	}
+</script>
+</head>
+
+<body>
+<h1>Enter A Movie</h1>
+
+<input type="text" id="movie">
+<button onclick="findMovie();">Search</button>
+
+</body>
+</html>
