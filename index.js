@@ -3,6 +3,7 @@
 
 var express = require('express');
 var app = express();
+
 const querystring = require('querystring');
 
 var pg = require("pg"); //'postgres://postgres:aurelius6908@127.0.0.1:5432/fav'
@@ -27,7 +28,7 @@ app.get('/mail', function(request, response) {
 	calculateRate(request, response);
 });
 //adding the movie or game into postgres
-app.post('/add2DB', function(request, response) {
+app.get('/add2DB', function(request, response) {
 	add2DB(request, response);
 });
 //this is part of everything, though.
@@ -152,8 +153,8 @@ function getPersonFromDb(id, callback) {
 } // end of getPersonFromDb*/
 
 function add2DB(request, response) {
-	var id = request.query.id;//maybe this will get the image?
-	console.log(id);
+	var id = url.parse(request.url,true).query.title;
+   console.log(id);
    var requestUrl = url.parse(request.url, true);
    adding2DB(id, function(error, result) {
        if (error || result == null || result.length != 1) {

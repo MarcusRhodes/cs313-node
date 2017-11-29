@@ -13,7 +13,7 @@ function search() {
 		console.log(status);
     	console.log(data);
 
-    	updateList(data)
+    	updateList(data);
 	});
 }
 
@@ -28,10 +28,13 @@ function updateList(data) {
 
 		var i = 0;
 		do {//name of image will change when I get it working
-			resultList.append('<p><img name="id" onclick="" src="' + data.Search[i].Poster + 
-				'" height="249" width="167" /></p>');
-			resultList.append("<li><p>" + data.Search[i].Title + "</p></li>");
-			resultList.append("<input type='submit' value='Add to list'>");
+			resultList.append('<p><img onclick="" src="' + data.Search[i].Poster + 
+				'" height="249" width="167" /><input type="text" name="image' + i + '" value="' + 
+				data.Search[i].Poster +	'" hidden></p>');
+			resultList.append('<p>' + data.Search[i].Title + 
+				'</p><input type="text" name="title" value="' +	data.Search[i].Title +	
+				'" hidden>');
+			resultList.append("<input type='submit' value='Add to list'><br>");
 			i++;
 		} while (i <= data.totalResults)
 	}
