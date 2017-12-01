@@ -1,3 +1,5 @@
+//http://localhost:5000/getFav?id=1
+//https://stormy-garden-79016.herokuapp.com/getFav?id=1
 //https://stormy-garden-79016.herokuapp.com/project/project.html
 
 var express = require('express');
@@ -25,9 +27,10 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 //this is part of another assignment
+
 app.get('/mail', function(request, response) {
 	calculateRate(request, response);
-});*/
+});
 //adding the movie or game into postgres
 app.post('/add2DB', function(request, response) {
 	add2DB(request, response);

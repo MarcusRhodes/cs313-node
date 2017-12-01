@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({
 const querystring = require('querystring');
 
 var pg = require("pg"); //'postgres://postgres:aurelius6908@127.0.0.1:5432/fav'
-const connectionString = process.env.DATABASE_URl;
+const connectionString = 'postgres://postgres:aurelius6908@127.0.0.1:5432/fav';
 //process.env.DATABASE_URl;
 
 var url = require('url');
@@ -27,9 +27,10 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 //this is part of another assignment
+
 app.get('/mail', function(request, response) {
 	calculateRate(request, response);
-});*/
+});
 //adding the movie or game into postgres
 app.post('/add2DB', function(request, response) {
 	add2DB(request, response);
