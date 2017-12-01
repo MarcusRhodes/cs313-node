@@ -78,7 +78,6 @@ function loadList() {
 }
 
 function makeList(data) {
-	//if (data.length > 0) {
 		var i = 0;
 		var resultList = $("#list");
 		resultList.empty();
@@ -94,6 +93,5 @@ function makeList(data) {
 			resultList.append('<br>');
 			i++;
 		} while (i <= Object.keys(data).length)
-	//}
 
 }
