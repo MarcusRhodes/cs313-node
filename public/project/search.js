@@ -83,8 +83,6 @@ function makeList(data) {
 		resultList.empty();
 		
 		do {//name of image will change when I get it working
-			resultList.append("THIS IS WORKING!!!");
-			
 			resultList.append('<p>Name: ' + data[i].username + '</p>');
 			resultList.append('<p>'+ data[i].username +'\'s favorite ' + data[i].favtype + ' is '+ data[i].favname +'. <br>');
 	

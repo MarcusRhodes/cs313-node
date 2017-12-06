@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({
 const querystring = require('querystring');
 
 var pg = require("pg"); //'postgres://postgres:aurelius6908@127.0.0.1:5432/fav'
-const connectionString = process.env.DATABASE_URl
+const connectionString = process.env.DATABASE_URl;
 //process.env.DATABASE_URl;
 
 var url = require('url');
@@ -115,7 +115,8 @@ function calculateRate(request, response) {
 }*/
 
 function getList(request, response) {
-	var client = new pg.Client(connectionString);
+	
+	var client = new pg.Client(connectionString, ssl: true);
 
    client.connect(function(err) {
         if (err) {
