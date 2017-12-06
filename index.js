@@ -164,7 +164,13 @@ function add2DB(request, response) {
 }
 
 function adding2DB(req, callback) {
-   var client = new pg.Client(connectionString);
+	const { Client } = require('pg');
+
+	const client = new Client({
+  		connectionString: process.env.DATABASE_URL,
+  		ssl: true,
+	});   
+   //var client = new pg.Client(connectionString);
 
    client.connect(function(err) {
         if (err) {
