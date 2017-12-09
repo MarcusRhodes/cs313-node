@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Internet Favorite Database</title>
+	<title>IFDB: Internet Favorite DataBase</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="search.js"></script>
-
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
 </head>
 <body>
 <center>
-	<h1>Internet Favorite Database</h1>
-
+	<span id="div1">
+		<h1>Internet Favorites DataBase</h1>
+	</span>
+	<br>
+	<br>
+	<br>
+	<br>
 	<p>Please enter a movie or game title to search:</p>
 	<input type="text" id="txtSearch">
 	<button onclick="search();">Search</button>
@@ -19,13 +24,12 @@
 	<p>...but please enter your name, first: <input type='text' id='username'></p>
 		<div id="divResults">
 			<h2>Search results</h2>
-	<!--<form action="/add2DB" method="post">-->
-			<ul id="ulResults">
-			</ul>
-	<!--</form>-->
+				<ul id="ulResults"></ul>
 		</div>
 	<br>
-	<p><button onclick="loadList();">Click here to load the list</button></p>
+	<p><button onclick="loadList();">Click here to load the list</button>
+	</p>
+	
 	<div id="list"></div>
 </center>
 </body>

@@ -24,6 +24,7 @@ function updateList(data) {
 
 		var i = 0;
 		do {//name of image will change when I get it working
+			resultList.append("<div id='div1'>");
 			resultList.append('<p><img src="' + data.Search[i].Poster + 
 				'" height="249" width="167" /><input type="text" id="imageurl' + i + '" value="' + 
 				data.Search[i].Poster +	'" hidden></p>');
@@ -33,8 +34,8 @@ function updateList(data) {
 			resultList.append('<input type="text" id="favtype' + i + '" value="' +	data.Search[i].Type +	
 				'" hidden>');
 			resultList.append('<p>Add a note! <input type="text" id="note' + i + '"></p>');
-			resultList.append("<button onclick='selection(" + i + ");'>Add to list</button><br>");
-			resultList.append("<div id='status" + i + "'></div>");
+			resultList.append("<button onclick='selection(" + i + ");'>Add to list</button>");
+			resultList.append("</div>");
 			i++;
 		} while (i <= data.totalResults)
 	}
@@ -58,9 +59,9 @@ function selection(num) {
 
 	$.post("/add2DB", params, function(result) {
 		if (result && result.success) {
-			$("#status" + num).text("Successfully logged in.");
+			$("#status" + num).text("Successfully added to list.");
 		} else {
-			$("#status" + num).text("Error logging in.");
+			$("#status" + num).text("Error adding to list.");
 		}
 	});
 }
@@ -71,8 +72,7 @@ function loadList() {
 		console.log("This is the loadlist function");
 		console.log(status);
 		var resultList = $("#list");
-		resultList.empty();
-		//resultList.append(data[0].favname);
+		resultList.empty();;
     	makeList(data);
 	});
 }
@@ -83,13 +83,12 @@ function makeList(data) {
 		resultList.empty();
 		
 		do {//name of image will change when I get it working
-			resultList.append('<p>Name: ' + data[i].username + '</p>');
+			resultList.append('<div class="list">');
 			resultList.append('<p>'+ data[i].username +'\'s favorite ' + data[i].favtype + ' is '+ data[i].favname +'. <br>');
 	
-			resultList.append('<img src="' + data[i].imageurl +	'" height="249" width="167" /></p>');
+			resultList.append('<img class="list" src="' + data[i].imageurl +	'" height="249" width="167" /></p>');
 			resultList.append('<p>'+ data[i].username +'\'s comment: ' + data[i].note + '</p>');
-			resultList.append('<br>');
+			resultList.append('<br> </div>');
 			i++;
 		} while (i <= Object.keys(data).length)
-
 }

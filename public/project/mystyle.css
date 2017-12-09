@@ -1,0 +1,44 @@
+span {
+	font-style: italic;
+	color: whitesmoke;
+	position: fixed;
+   left: 0;
+   top: 0;
+   width: 100%;
+	background-color: #333;
+	position: fixed;
+   z-index: 999;
+}
+body {
+	align-content: center;
+	font-family: serif;
+   margin-top: 25px;
+   font-size: 16px;
+   text-align: center;
+
+   -webkit-animation: fadein 2s;
+      -moz-animation: fadein 2s;
+           animation: fadein 2s;
+}
+
+img, input, p {
+   text-align: center;
+   -webkit-animation: fadein 2s;
+      -moz-animation: fadein 2s;
+           animation: fadein 2s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

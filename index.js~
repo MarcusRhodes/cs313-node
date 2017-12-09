@@ -1,5 +1,4 @@
-//http://localhost:5000/getFav?id=1
-//https://stormy-garden-79016.herokuapp.com/getFav?id=1
+//http://localhost:5000/project/project.html
 //https://stormy-garden-79016.herokuapp.com/project/project.html
 
 var express = require('express');
@@ -13,7 +12,7 @@ app.use(bodyParser.urlencoded({
 
 const querystring = require('querystring');
 
-var pg = require("pg"); //'postgres://postgres:aurelius6908@127.0.0.1:5432/fav'
+var pg = require("pg"); //'postgres://postgres:aurelius6908@127.0.0.1:5432/fav';
 const connectionString = process.env.DATABASE_URl;
 //process.env.DATABASE_URl;
 
@@ -121,7 +120,7 @@ function getList(request, response) {
   		connectionString: process.env.DATABASE_URL,
   		ssl: true,
 	});
-	//var client = new pg.Client(connectionString);
+	//*/var client = new pg.Client(connectionString);
 
    client.connect(function(err) {
         if (err) {
@@ -160,11 +159,17 @@ function add2DB(request, response) {
            var person = result[0];
            response.status(200).json(result[0]);
        }
-   });//*/
+   });
 }
 
 function adding2DB(req, callback) {
-   var client = new pg.Client(connectionString);
+	/*const { Client } = require('pg');
+
+	const client = new Client({
+  		connectionString: process.env.DATABASE_URL,
+  		ssl: true,
+	});   
+   //*/var client = new pg.Client(connectionString);
 
    client.connect(function(err) {
         if (err) {
